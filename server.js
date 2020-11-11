@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require("./routes");
+const mongoose = require("mongoose");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -12,6 +14,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
@@ -26,10 +29,12 @@ mongoose.connect(
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+//https://www.googleapis.com/books/v1/volumes?q=harry%20potter

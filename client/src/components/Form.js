@@ -19,3 +19,4 @@ export function FormBtn(props) {
 }
 
 // Week 21 Activity 5
+// Mike suggestion: separate out components into its own file
