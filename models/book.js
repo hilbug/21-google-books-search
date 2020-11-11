@@ -6,9 +6,11 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    authors: {
+    subtitle: {
         type: String,
-        required: true
+    },
+    authors: {
+        type: [String]
     },
     description: {
         type: String
@@ -24,3 +26,10 @@ const bookSchema = new Schema({
 const Book = mongoose.model("Book", bookSchema);
 
 module.exports = Book;
+
+// Set array as type in model?
+// https://stackoverflow.com/questions/19695058/how-to-define-object-in-array-in-mongoose-schema-correctly-with-2d-geo-index
+// Type array, default: [] ??
+
+// Mongoose Arrays
+// https://masteringjs.io/tutorials/mongoose/array
