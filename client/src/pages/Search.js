@@ -7,7 +7,8 @@ import API from "../utils/API";
 import Book from "../components/Book";
 
 const Search = () => {
-    const [searchTerm, setSearchTerm] = useState({});
+    const [searchTerm, setSearchTerm] = useState("Boston"); 
+        // enter what I want to load on page here - initializing starting searchTerm as "Boston"
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
@@ -51,7 +52,7 @@ const Search = () => {
                                 onClick={handleFormSubmit}
                             >
                                 Search
-                    </FormBtn>
+                            </FormBtn>
                         </form>
                     </Col>
                 </Row>
@@ -63,7 +64,10 @@ const Search = () => {
 
                         {books
                             ? books.map((book) => (
-                                <Book key={book.id} volumeInfo={book.volumeInfo} />
+                                <Book 
+                                    key={book.id} 
+                                    volumeInfo={book.volumeInfo} 
+                                    />
                             ))
                             : null}
                     </Row>
