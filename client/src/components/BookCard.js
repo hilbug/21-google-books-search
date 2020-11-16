@@ -40,7 +40,7 @@ const Book = (props) => {
                     <div className="d-flex justify-content-center align-items-center">
                         <ButtonGroup aria-label="Project Links" page={props.page}>
                             <Button 
-                                href={props.data.link} 
+                                href={props.data.link || props.data.infoLink} 
                                 target="_blank" 
                                 size="sm" 
                                 variant="outline-secondary">
