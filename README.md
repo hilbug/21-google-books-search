@@ -1,3 +1,38 @@
+# Google Books Search
+
+## Description
+Search for books using the Google Books API and save books to reference later. This app leverages React for front-end and ExpressJS and MongoDB for back-end.
+
+### App Screenshot
+Search
+
+<img width="600" alt="Screen Shot 2020-11-16 at 1 20 02 AM" src="https://user-images.githubusercontent.com/65197724/99219062-dd425400-27a9-11eb-8a01-ff7de8d3d312.png">
+
+Saved
+
+<img width="600" alt="Screen Shot 2020-11-16 at 1 21 21 AM" src="https://user-images.githubusercontent.com/65197724/99219148-0c58c580-27aa-11eb-8b7c-544977538c7c.png">
+
+### App Link
+
+Check out the app at [this link](https://thawing-dawn-74077.herokuapp.com/)!
+
+### Technology
+Front-end:
+- React (create-react-app)
+- React Router
+- Bootstrap
+- React Bootstrap
+
+Back-end:
+- Axios
+- Express
+- MongoDB/Mongoose
+
+### Future Enhancements
+- User authentication
+- Prettify the site
+
+
 # Create React Express App
 
 ## About This Boilerplate
