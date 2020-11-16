@@ -22,6 +22,7 @@ const Book = (props) => {
                     >
                         {props.data.subtitle}
                     </Card.Subtitle>
+                    <br />
                     <Card.Subtitle 
                         className="text-center"
                     >
@@ -31,7 +32,7 @@ const Book = (props) => {
                     <Card.Text 
                         className="text-center"
                     >
-                        <Image src={props.data.image} alt="Book Cover" thumbnail />
+                        <Image src={props.data.image || props.data.imageLinks.thumbnail} alt="Book Cover" thumbnail />
                     </Card.Text>
                     <Card.Text>
                         {props.data.description || "No description provided by Google Books."}

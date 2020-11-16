@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SearchBox, FormBtn } from "../components/Form";
 import API from "../utils/API";
-import Book from "../components/Book";
+import BookCard from "../components/BookCard";
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState("Boston"); 
@@ -36,6 +36,24 @@ const Search = () => {
         };
     };
 
+    function handleBookSubmit(book) {
+        if (book.title) {
+            API.saveBook(
+                //bookData
+                {
+                    title: book.title,
+                    subtitle: book.subtitle,
+                    authors: book.authors,
+                    description: book.description,
+                    image: book.imageLinks.thumbnail,
+                    link: book.infoLink
+                }
+            )
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+    };
+
     return (
         <>
             <Container>
@@ -64,9 +82,11 @@ const Search = () => {
 
                         {books
                             ? books.map((book) => (
-                                <Book 
+                                <BookCard 
                                     key={book.id} 
-                                    volumeInfo={book.volumeInfo} 
+                                    data={book.volumeInfo} 
+                                    page="search"
+                                    handleBookSubmit={handleBookSubmit}
                                     />
                             ))
                             : null}
