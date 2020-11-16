@@ -10,19 +10,58 @@ const Book = (props) => {
     return (
         <Col md={12}>
             <Card className="mb-4 shadow-sm" page={props.page}>
+                
                 <Card.Body>
-                    <Card.Title className="text-center">{props.data.title}</Card.Title>
-                    <Card.Subtitle className="text-center">{props.data.subtitle}</Card.Subtitle>
-                    <Card.Subtitle>{"Written By " + props.data.authors}</Card.Subtitle>
-                    <Card.Text><Image src={props.data.imageLinks.thumbnail} alt="Book Cover" thumbnail /><br />{props.data.description || "No description provided by Google Books."}</Card.Text>
+                    <Card.Title 
+                        className="text-center"
+                    >
+                        {props.data.title}
+                    </Card.Title>
+                    <Card.Subtitle 
+                        className="text-center"
+                    >
+                        {props.data.subtitle}
+                    </Card.Subtitle>
+                    <Card.Subtitle 
+                        className="text-center"
+                    >
+                        {"Written By " + props.data.authors}
+                    </Card.Subtitle>
+                    <br />
+                    <Card.Text 
+                        className="text-center"
+                    >
+                        <Image src={props.data.image} alt="Book Cover" thumbnail />
+                    </Card.Text>
+                    <Card.Text>
+                        {props.data.description || "No description provided by Google Books."}
+                    </Card.Text>
                     <div className="d-flex justify-content-center align-items-center">
                         <ButtonGroup aria-label="Project Links" page={props.page}>
-                            <Button href={props.data.infoLink} target="_blank" size="sm" variant="outline-secondary">
+                            <Button 
+                                href={props.data.link} 
+                                target="_blank" 
+                                size="sm" 
+                                variant="outline-secondary">
                                 View
                             </Button>
                         {props.page === "search" ? 
-                            <Button className="save-btn" size="sm" variant="outline-secondary" onClick={props.handleBookSubmit}>Save</Button> :
-                            <Button className="del-btn" size="sm" variant="outline-secondary" onClick={props.handleBookDelete}>Delete</Button>}
+                            <Button 
+                                className="save-btn" 
+                                size="sm" 
+                                variant="outline-secondary" 
+                                onClick={() => props.handleBookSubmit(props.data)}
+                                >
+                                    Save
+                            </Button> :
+                            <Button 
+                                className="del-btn" 
+                                size="sm" 
+                                variant="outline-secondary" 
+                                onClick={() => props.handleBookDelete(props.data._id)}
+                                >
+                                    Delete
+                            </Button>}
                         </ButtonGroup>
                     </div>
                 </Card.Body>
