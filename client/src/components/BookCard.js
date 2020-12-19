@@ -29,11 +29,21 @@ const Book = (props) => {
                         {"Written By " + props.data.authors}
                     </Card.Subtitle>
                     <br />
-                    <Card.Text 
-                        className="text-center"
-                    >
-                        <Image src={props.data.image || props.data.imageLinks.thumbnail} alt="Book Cover" thumbnail />
-                    </Card.Text>
+                    {
+                        (props.data.image || props.data.imageLinks)
+                        ? <Card.Text 
+                            className="text-center"
+                        ><Image 
+                        src={props.data.image || props.data.imageLinks.thumbnail} alt="Book Cover" 
+                        thumbnail 
+                        />
+                        </Card.Text>
+                        : <Card.Text
+                            className="text-center"
+                        >
+                            No image provided by Google Books.
+                        </Card.Text>
+                    }
                     <Card.Text>
                         {props.data.description || "No description provided by Google Books."}
                     </Card.Text>
